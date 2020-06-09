@@ -17,6 +17,6 @@ cleanup:
 
 preview:
   image:
-    repository:
-    tag:
+    repository: salaboy/fmtok8s-monolith
+    tag: 0.0.10
     pullPolicy: IfNotPresent
