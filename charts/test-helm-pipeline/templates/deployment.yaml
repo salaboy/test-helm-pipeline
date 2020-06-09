@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "salaboy/fmtok8s-monolith:0.0.10"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
 {{- range $pkey, $pval := .Values.env }}
