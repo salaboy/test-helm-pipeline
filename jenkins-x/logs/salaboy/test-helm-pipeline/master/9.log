@@ -1,0 +1,66 @@
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-2msqw[0m
+{"level":"info","ts":1591694327.9956694,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1591694327.997146,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-2w7hl[0m
+{"level":"info","ts":1591694328.4824688,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1591694328.4848082,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-salaboy-test-helm-pipeline-mast-z9xt2-dcrv8[0m
+{"level":"info","ts":1591694334.5920854,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1591694335.6743083,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*******/test-helm-pipeline.git @ v0.0.9 in path /workspace/source"}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+DEBUG: Using helmBinary helm with feature flag: template-mode
+DEBUG: Initialising Helm 'init --client-only'
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+Running helm dependency build in .
+No requirements found in ./charts.
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/test-helm-pipeline to an unshallow repository
+Generating change log from git ref 96aa22f9e7000a84859728ead267930e5f844f6f => 7c3d39267f4b393de18c797293bb7458b517e687
+Associating user x-0 in users.jenkins.io with email *******@gmail.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 8b9f8cfadbc70a712a3c0bc45005f2a8761a8d89 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email *******@gmail.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 8b9f8cfadbc70a712a3c0bc45005f2a8761a8d89 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for *******/test-helm-pipeline and tag v0.0.9 so creating a new release
+Updated the release information at https://github.com/*******/test-helm-pipeline/releases/tag/v0.0.9
+generated: /workspace/source/charts/test-helm-pipeline/templates/release.yaml
+Created Release test-helm-pipeline-0-0-9 resource in namespace **
+Updating PipelineActivity *******-test-helm-pipeline-master-9 with version 0.0.9
+Updated PipelineActivities *******-test-helm-pipeline-master-9 with release notes URL: https://github.com/*******/test-helm-pipeline/releases/tag/v0.0.9
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file test-helm-pipeline-0.0.9.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-z9xt2-9[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app test-helm-pipeline version 0.0.9 to namespace **-staging
+Created Pull Request: https://github.com/*******/environment-zeebe-helm-new-staging/pull/6
+Added label updatebot to Pull Request https://github.com/*******/environment-zeebe-helm-new-staging/pull/6
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/6
+Pull Request https://github.com/*******/environment-zeebe-helm-new-staging/pull/6 is merged at sha 3ef5fa0bbc95713741e31b965ae6fb7470165631
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names test-helm-pipeline, **-test-helm-pipeline, **-staging-test-helm-pipeline
