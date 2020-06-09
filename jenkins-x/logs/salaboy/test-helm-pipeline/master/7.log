@@ -1,0 +1,114 @@
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-967rs[0m
+{"level":"info","ts":1591692979.541424,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1591692979.541928,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-984vv[0m
+{"level":"info","ts":1591692980.8240952,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1591692980.8261306,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-salaboy-test-helm-pipeline-mast-cm74g-b4bls[0m
+{"level":"info","ts":1591692986.9576313,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1591692988.0313208,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*******/test-helm-pipeline.git @ v0.0.8 in path /workspace/source"}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+DEBUG: Using helmBinary helm with feature flag: template-mode
+DEBUG: Initialising Helm 'init --client-only'
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+Running helm dependency build in .
+No requirements found in ./charts.
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/test-helm-pipeline to an unshallow repository
+Generating change log from git ref a165d3d4ad25de94ed61e371a6932606a9867e82 => 96aa22f9e7000a84859728ead267930e5f844f6f
+WARNING: No release found for *******/test-helm-pipeline and tag v0.0.8 so creating a new release
+Updated the release information at https://github.com/*******/test-helm-pipeline/releases/tag/v0.0.8
+generated: /workspace/source/charts/test-helm-pipeline/templates/release.yaml
+Created Release test-helm-pipeline-0-0-8 resource in namespace **
+Updating PipelineActivity *******-test-helm-pipeline-master-7 with version 0.0.8
+Updated PipelineActivities *******-test-helm-pipeline-master-7 with release notes URL: https://github.com/*******/test-helm-pipeline/releases/tag/v0.0.8
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file test-helm-pipeline-0.0.8.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32msalaboy-test-helm-pipeline-mast-cm74g-7[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app test-helm-pipeline version 0.0.8 to namespace **-staging
+Created Pull Request: https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Added label updatebot to Pull Request https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+WARNING: Failed to query the Pull Request last commit status for https://github.com/*******/environment-zeebe-helm-new-staging/pull/5 ref 5def08b6ca155c5e9bef06817eda29ed10aa1bcb Could not find a status for repository *******/environment-zeebe-helm-new-staging with ref 5def08b6ca155c5e9bef06817eda29ed10aa1bcb
+WARNING: Failed to query the Pull Request last commit status for https://github.com/*******/environment-zeebe-helm-new-staging/pull/5 ref 5def08b6ca155c5e9bef06817eda29ed10aa1bcb Could not find a status for repository *******/environment-zeebe-helm-new-staging with ref 5def08b6ca155c5e9bef06817eda29ed10aa1bcb
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+WARNING: Failed to merge the Pull Request https://github.com/*******/environment-zeebe-helm-new-staging/pull/5 due to PUT https://api.github.com/repos/*******/environment-zeebe-helm-new-staging/pulls/5/merge: 405 Pull Request is not mergeable [] maybe I don't have karma?
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Rebasing PullRequest due to conflict
+got git provider status pending from PR https://github.com/*******/environment-zeebe-helm-new-staging/pull/5
+Pull Request https://github.com/*******/environment-zeebe-helm-new-staging/pull/5 is merged at sha f535c48a7c089be808c9f792423b9c7f1429b05e
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names test-helm-pipeline, **-test-helm-pipeline, **-staging-test-helm-pipeline
