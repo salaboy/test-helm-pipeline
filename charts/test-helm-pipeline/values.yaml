@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: salaboy/fmtok8s-monolith
+  repository: gcr.io/camunda-researchanddevelopment/test-helm-pipeline
   tag: 0.0.10
   pullPolicy: IfNotPresent
 
