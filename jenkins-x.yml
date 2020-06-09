@@ -11,7 +11,7 @@ pipelineConfig:
         - dir: charts/preview
         steps:
         - sh: make preview
-            name: make-preview
+          name: make-preview
         - sh: jx preview --app $APP_NAME --dir ../..
-            name: jx-preview
+          name: jx-preview
 
