@@ -14,3 +14,4 @@ dependencies:
 - alias: preview
   name: test-helm-pipeline
   repository: file://../test-helm-pipeline
+  version: 0.0.x
