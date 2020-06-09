@@ -2,9 +2,6 @@ buildPack: helm
 pipelineConfig:
   pipelines:
     pullRequest:
-      postBuild:
-        steps:
-        - command: jx step post build
       promote:
         replace: true
         steps:
