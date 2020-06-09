@@ -12,5 +12,5 @@ dependencies:
   # !! "alias: preview" must be last entry in dependencies array !!
   # !! Place custom dependencies above !!
 - alias: preview
-  name: zeebe-k8s-tests
-  repository: file://../zeebe-k8s-tests
+  name: test-helm-pipeline
+  repository: file://../test-helm-pipeline
