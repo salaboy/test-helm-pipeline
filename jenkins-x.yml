@@ -1,16 +1,17 @@
 buildPack: helm
-pipelines:
+pipelineConfig:
+  pipelines:
     pullRequest:
       postBuild:
         steps:
-        - sh: jx step post build
-          name: post-build
+        - command: jx step post build
       promote:
+        replace: true
         steps:
         - dir: charts/preview
-          steps:
-          - sh: make preview
+        steps:
+        - sh: make preview
             name: make-preview
-          - sh: jx preview --app $APP_NAME --dir ../..
+        - sh: jx preview --app $APP_NAME --dir ../..
             name: jx-preview
 
