@@ -7,6 +7,10 @@ pipelineConfig:
         steps:
         - dir: charts/preview
         steps:
+        - sh: jx step helm build
+          dir: /workspace/source/charts/preview
+          image: maven
+          name: build-helm-build    
         - sh: make preview
           name: make-preview
         - sh: jx preview --app $APP_NAME --dir ../..
