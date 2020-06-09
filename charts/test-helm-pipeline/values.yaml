@@ -44,7 +44,7 @@ canary:
   host: acme.com
 
 service:
-  name: zeebe-k8s-tests
+  name: test-helm-pipeline
   type: ClusterIP
   externalPort: 80
   internalPort: 8080
